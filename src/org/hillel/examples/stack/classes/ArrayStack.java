@@ -2,36 +2,36 @@ package org.hillel.examples.stack.classes;
 
 import org.hillel.examples.stack.interfaces.Stack;
 
-public class ArrayStack implements Stack {
-    private char[] elements;
+public class ArrayStack<T> implements Stack<T> {
+    private Object[] elements;
     private int capacity;
     private int topIndex = -1;
 
     public ArrayStack() {
         capacity = 10;
-        elements = new char[capacity];
+        elements = new Object[capacity];
     }
 
     public ArrayStack(int capacity) {
         this.capacity = capacity;
-        elements = new char[this.capacity];
+        elements = new Object[this.capacity];
     }
 
     @Override
-    public void push(char element) {
+    public void push(T element) {
         checkCapacity(topIndex + 1);
         elements[++topIndex] = element;
     }
 
     @Override
-    public char pop() {
+    public T pop() {
         checkCapacity(topIndex - 1);
-        return elements[topIndex--];
+        return (T) elements[topIndex--];
     }
 
     @Override
-    public char peek() {
-        return elements[topIndex];
+    public T peek() {
+        return (T) elements[topIndex];
     }
 
     @Override
@@ -63,8 +63,8 @@ public class ArrayStack implements Stack {
     }
 
     private void copyData() {
-        char[] temp = elements;
-        elements = new char[capacity];
+        Object[] temp = elements;
+        elements = new Object[capacity];
 
         for (int i = 0; i <= topIndex; i++) {
             elements[i] = temp[i];

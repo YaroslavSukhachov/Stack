@@ -1,9 +1,9 @@
 package org.hillel.examples.stack.interfaces;
 
-public interface Stack {
-    void push(char element);
-    char pop();
-    char peek();
+public interface Stack<T> {
+    void push(T element);
+    T pop();
+    T peek();
 
     boolean isEmpty();
     int capacity();

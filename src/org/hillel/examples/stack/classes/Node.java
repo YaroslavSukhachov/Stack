@@ -1,18 +1,18 @@
 package org.hillel.examples.stack.classes;
 
-public class Node {
-    private char data;
+public class Node<T> {
+    private T data;
     private Node prev;
 
-    public Node(char data) {
+    public Node(T data) {
         this.data = data;
     }
 
-    public char getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(char data) {
+    public void setData(T data) {
         this.data = data;
     }
 

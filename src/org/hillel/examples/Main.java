@@ -1,26 +1,24 @@
 package org.hillel.examples;
 
-import org.hillel.examples.stack.classes.LinkedStack;
-import org.hillel.examples.stack.interfaces.Stack;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        Stack org.hillel.examples.stack = new ArrayStack(1);
-        Stack stack = new LinkedStack();
-//        System.out.println("capacity = " + org.hillel.examples.stack.capacity());
-
-        String string = "Строка";
-        for (char c : string.toCharArray()) {
-            stack.push(c);
-//            System.out.println("capacity = " + org.hillel.examples.stack.capacity());
+        List<String> result = StringUtils.getStringsWithPoints("abcde");
+        for (String line : result) {
+            System.out.println(line);
         }
 
-        while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
-//            System.out.println("capacity = " + org.hillel.examples.stack.capacity());
+        String expression = "{[(1 + 2)] * (2 + 3)}";
+        if (StringUtils.checkBrackets(expression)) {
+            System.out.println("String is valid");
+        } else {
+            System.out.println("String is invalid");
         }
-
     }
 }

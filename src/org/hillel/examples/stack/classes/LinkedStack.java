@@ -2,12 +2,12 @@ package org.hillel.examples.stack.classes;
 
 import org.hillel.examples.stack.interfaces.Stack;
 
-public class LinkedStack implements Stack {
+public class LinkedStack<T> implements Stack<T> {
 
-    private Node top;
+    private Node<T> top;
 
     @Override
-    public void push(char element) {
+    public void push(T element) {
         Node node = new Node(element);
         node.setPrev(top);
 
@@ -15,15 +15,15 @@ public class LinkedStack implements Stack {
     }
 
     @Override
-    public char pop() {
-        char result = top.getData();
+    public T pop() {
+        T result = top.getData();
         top = top.getPrev();
 
         return result;
     }
 
     @Override
-    public char peek() {
+    public T peek() {
         return top.getData();
     }
 
