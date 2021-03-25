@@ -17,7 +17,7 @@ public class StringUtils {
 
         for (int i = 0; i < allCombinationAmount; i++) {
             String dotsPosition =
-                    String.format("%" + maxDotsAmount + "s", Integer.toBinaryString(i))
+                    String.format("%" + (maxDotsAmount == 0 ? 1 : maxDotsAmount) + "s", Integer.toBinaryString(i))
                         .replace(" ", "0");
 
             StringBuilder line = new StringBuilder();

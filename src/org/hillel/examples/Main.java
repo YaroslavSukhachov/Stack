@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<String> result = StringUtils.getStringsWithPoints("abcde");
+        List<String> result = StringUtils.getStringsWithPoints("abcd");
         for (String line : result) {
             System.out.println(line);
         }
