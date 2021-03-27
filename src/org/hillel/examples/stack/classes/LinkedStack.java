@@ -1,21 +1,23 @@
 package org.hillel.examples.stack.classes;
 
+import org.hillel.examples.stack.exceptions.EmptyStackException;
 import org.hillel.examples.stack.interfaces.Stack;
 
 public class LinkedStack<T> implements Stack<T> {
 
-    private Node<T> top;
+    private StackNode<T> top;
 
     @Override
     public void push(T element) {
-        Node node = new Node(element);
-        node.setPrev(top);
+        StackNode stackNode = new StackNode(element);
+        stackNode.setPrev(top);
 
-        top = node;
+        top = stackNode;
     }
 
     @Override
     public T pop() {
+        checkIsEmpty();
         T result = top.getData();
         top = top.getPrev();
 
@@ -24,6 +26,7 @@ public class LinkedStack<T> implements Stack<T> {
 
     @Override
     public T peek() {
+        checkIsEmpty();
         return top.getData();
     }
 
@@ -35,5 +38,11 @@ public class LinkedStack<T> implements Stack<T> {
     @Override
     public int capacity() {
         return 0;
+    }
+
+    private void checkIsEmpty() {
+        if (isEmpty()) {
+            throw new EmptyStackException("Стек пустой");
+        }
     }
 }

@@ -1,10 +1,10 @@
 package org.hillel.examples.stack.classes;
 
-public class Node<T> {
+public class StackNode<T> {
     private T data;
-    private Node prev;
+    private StackNode prev;
 
-    public Node(T data) {
+    public StackNode(T data) {
         this.data = data;
     }
 
@@ -16,11 +16,11 @@ public class Node<T> {
         this.data = data;
     }
 
-    public Node getPrev() {
+    public StackNode getPrev() {
         return prev;
     }
 
-    public void setPrev(Node prev) {
+    public void setPrev(StackNode prev) {
         this.prev = prev;
     }
 }

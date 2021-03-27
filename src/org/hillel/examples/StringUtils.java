@@ -1,6 +1,7 @@
 package org.hillel.examples;
 
 import org.hillel.examples.stack.classes.LinkedStack;
+import org.hillel.examples.stack.exceptions.EmptyStackException;
 import org.hillel.examples.stack.interfaces.Stack;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class StringUtils {
         return result;
     }
 
-    public static boolean checkBrackets(String expression) {
+    public static boolean checkBrackets(String expression) throws EmptyStackException {
         Stack<Character> stack = new LinkedStack<>();
 
         for (char c : expression.toCharArray()) {

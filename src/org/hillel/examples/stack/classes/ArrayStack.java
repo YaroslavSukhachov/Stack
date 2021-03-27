@@ -1,5 +1,6 @@
 package org.hillel.examples.stack.classes;
 
+import org.hillel.examples.stack.exceptions.EmptyStackException;
 import org.hillel.examples.stack.interfaces.Stack;
 
 public class ArrayStack<T> implements Stack<T> {
@@ -25,12 +26,14 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
+        checkIsEmpty();
         checkCapacity(topIndex - 1);
         return (T) elements[topIndex--];
     }
 
     @Override
     public T peek() {
+        checkIsEmpty();
         return (T) elements[topIndex];
     }
 
@@ -42,6 +45,12 @@ public class ArrayStack<T> implements Stack<T> {
     @Override
     public int capacity() {
         return capacity;
+    }
+
+    private void checkIsEmpty() {
+        if (isEmpty()) {
+            throw new EmptyStackException("Стек пустой");
+        }
     }
 
     private void checkCapacity(int size) {
